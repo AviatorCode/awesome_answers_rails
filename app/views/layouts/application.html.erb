@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>AwesomeAnswersJan2019</title>
+    <title>Awesome Answers</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -10,6 +10,15 @@
   </head>
 
   <body>
-    <%= yield %>
+    <header>
+      <nav>
+        <%# <a href="/">Home</a> %>
+        <%= link_to("Home", root_path) %>
+        <%= link_to("Contact Us", contact_us_path) %>
+      </nav>
+    </header>
+    <main>
+      <%= yield %>
+    </main>
   </body>
 </html>

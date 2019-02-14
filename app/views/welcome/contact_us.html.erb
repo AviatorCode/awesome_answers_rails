@@ -1,0 +1,40 @@
+<h1>Contact Us</h1>
+
+<%#
+  CSRF (Cross-Site Request Forgery)
+
+  Using a Rails form helper such as `form_tag` will create form
+  with a few pre-generated features:
+    - It will always set the form to `POST` by default.
+    - It will create a `authenticity_token` hidden field
+      that contains a key issue issued by Rails. This key is required
+      by Rails for any POST, PATCH, PUT or DELETE requests otherwise
+      they will be refused. This prevents websites other than your
+      Rails server to make HTTP request to your server.
+%>
+
+<%# form_tag("/process_contact") do %>
+<%= form_tag(process_contact_path) do %>
+  <div>
+    <%= label_tag(:full_name) %> <br>
+    <%= text_field_tag(:full_name) %>
+  </div>
+
+  <div>
+    <%= label_tag(:email) %> <br>
+    <%= email_field_tag(:email, nil, class: "magic-input") %>
+  </div>
+
+  <div>
+    <%= label_tag(:message) %> <br>
+    <%= text_area_tag(:message, nil, cols: 60, rows: 5) %>
+  </div>
+
+  <%= submit_tag("Contact Us") %>
+
+  <%#
+    For all the available form tag helpers checkout:
+    https://api.rubyonrails.org/v5.1/classes/ActionView/Helpers/FormTagHelper.html
+  %>
+
+<% end %>

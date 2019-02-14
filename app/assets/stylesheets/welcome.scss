@@ -1,0 +1,27 @@
+// Place all the styles related to the welcome controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+// To write CSS for your application, create a CSS file in this directory
+// and write your CSS. It will be automatically loaded.
+html {
+  --spacer: 20px;
+}
+
+body {
+  margin: 0;
+}
+
+main {
+  padding: var(--spacer);
+}
+
+nav {
+  display: flex;
+  justify-content: flex-end;
+  background-color: whitesmoke;
+}
+
+nav > * {
+  padding: var(--spacer);
+}
