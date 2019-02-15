@@ -5,3 +5,23 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+# Always remove old data from your seeds before re-seeding
+Question.destroy_all
+200.times do
+  # Faker is a ruby module. We access classes or other
+  # modules inside of a module with ::. Here Date is a
+  # class inside the Faker module .
+  created_at = Faker::Date.backward(365 * 5)
+  Question.create(
+    title: Faker::Hacker.say_something_smart,
+    body: Faker::ChuckNorris.fact,
+    view_count: rand(100_000),
+    created_at: created_at,
+    updated_at: created_at,
+  )
+end
+
+question = Question.all
+
+puts Cowsay.say("Generated #{question.count} questions", :frogs)
